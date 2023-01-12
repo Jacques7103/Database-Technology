@@ -1,7 +1,9 @@
+#Importing the module that are needed to get the data from database
 import mysql.connector
 from mysql.connector import Error
 import module
 
+#Creating the variable to store sentences to insert and get data from the database
 check_user = False
 user = "INSERT INTO user(username, password, occupation, user_id) values(%s, %s, %s, %s)"
 sql_user = "SELECT * FROM user"
@@ -15,6 +17,7 @@ stock = "UPDATE %s SET stocks = %s WHERE type_id = %s"
 
 class userInput:
     def userLogin():
+        """Check whether the user's input is in database"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -56,6 +59,7 @@ class userInput:
                 connection.close()
         
     def userRegister():
+        """Check whether user's input is blank, if not insert it into the database"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -135,6 +139,7 @@ class userInput:
                 connection.close()
                 
     def getCategory():
+        """Get the list of category from the database"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -167,6 +172,7 @@ class userInput:
                 connection.close()
                 
     def getTV():
+        """Get the list of product brand, type id, buying price, selling price, stock, and description from the category TV"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -190,6 +196,7 @@ class userInput:
                 connection.close()
                 
     def getFridge():
+        """Get the list of product brand, type id, buying price, selling price, stock, and description from the category Refrigerator"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -212,6 +219,7 @@ class userInput:
                 connection.close()
                 
     def editStock(int1):
+        """To edit the database stock of a certain items based on user input"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -293,6 +301,7 @@ class userInput:
                 connection.close()
                 
     def update_stock(category, stock_num, type_id):
+        """To execute updating the stock based on the user input to the database"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -315,6 +324,7 @@ class userInput:
                 connection.close()
     
     def addData():
+        """To add the data based on user input"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -380,6 +390,7 @@ class userInput:
                 connection.close()
     
     def putData(category, brand, type_id, modal, sell, stocks, desc):
+        """To execute adding data to the database"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -402,6 +413,7 @@ class userInput:
                 connection.close()
                 
     def removeData():
+        """To remove data based on user input"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -475,6 +487,7 @@ class userInput:
                 connection.close()
                 
     def xData(category, type_id):
+        """To execute removing data from database"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -497,6 +510,7 @@ class userInput:
                 connection.close()
 
     def changePrice():
+        """To change the price of certain item based on user input"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',
@@ -556,6 +570,7 @@ class userInput:
                 connection.close()
                 
     def putPrice(category, modal, sell, type_id):
+        """To execute change of price to the database"""
         try:
             connection = mysql.connector.connect(host='localhost',
                                                 database='stocks',

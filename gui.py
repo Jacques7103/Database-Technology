@@ -1,38 +1,47 @@
+#Importing the module to create the GUI and get the data from database
 from module import *
 import module
 
 class createGUI(Tk):
     def __init__(self, stock):
+        """To initialize and run the main loop"""
         self.stock = stock
         self.loginWindow()
         self.stock.mainloop()
         
     def openRegister(self, frame):
+        """Open Register Window"""
         frame.destroy()
         self.registerWindow()
         
     def openLogin(self, frame):
+        """Open Login Window"""
         frame.destroy()
         self.loginWindow()
         
     def openAudit(self, frame):
+        """Open Audit Window"""
         frame.destroy()
         self.auditPanel()
         
     def openMarket(self, frame):
+        """Open Market Window"""
         frame.destroy()
         self.marketPanel()
         
     def openStore(self, frame):
+        """Open Storekeeper Window"""
         frame.destroy()
         self.storePanel()
         
     def backLogin(self, window):
+        """Going back to login window after logout"""
         self.loginWindow()
         self.stock.deiconify()
         window.withdraw()
         
     def loginWindow(self):    
+        """Create GUI for login window"""
         self.stock.configure(bg = "#333333")
         login_frame = tk.Frame(self.stock, bg = "#333333")
         login_frame.pack()
@@ -55,6 +64,7 @@ class createGUI(Tk):
         create_account_label.grid(row = 6, column = 0)
         
     def registerWindow(self):
+        """Create GUI for register window"""
         self.stock.configure(bg = "#333333")   
         register_frame = tk.Frame(self.stock, bg = "#333333")
         register_frame.pack()
@@ -89,6 +99,7 @@ class createGUI(Tk):
         login_label.grid(row = 12, column = 0)
         
     def auditPanel(self):
+        """Create GUI for audit window"""
         global category_button, audit, y, audit_frame
         self.stock.withdraw()
         audit = tk.Toplevel()
@@ -111,6 +122,7 @@ class createGUI(Tk):
         audit.mainloop()
         
     def stockButton(self, frame):
+        """Creating the button to edit stock"""
         global stock_button
         stock_button = Button(frame, text = "Edit Stock", font = "Poppins, 15", bg = "#222222", fg = "#ffffff", width = 12, borderwidth = 0, highlightthickness = 0, activebackground = "#222222", activeforeground = "#ffffff")
         stock_button.bind("<Button-1>", lambda e:self.editStock())
@@ -118,6 +130,7 @@ class createGUI(Tk):
         stock_button.place(x = -10, y = 45)
         
     def editStock(self):
+        """Function to edit the stock"""
         self.int1 = module.int1
         self.int1.set(0)
         self.stock_frame = tk.Toplevel()
@@ -148,6 +161,7 @@ class createGUI(Tk):
         add_button.grid(row = 5, column = 0, pady = (15,5), sticky = "news")
         
     def update_brand(self, frame, event=None):
+        """Opening the category that has been edited after clicked 'edit'"""
         user = userInput.editStock(module.int1)
         if len(user) == 1:
             check = user[0]
@@ -170,6 +184,7 @@ class createGUI(Tk):
             
     
     def marketPanel(self):
+        """Create GUI for market window"""
         global category_button, market, market_frame
         self.stock.withdraw()
         market = tk.Toplevel()
@@ -191,6 +206,7 @@ class createGUI(Tk):
         market.mainloop()
         
     def addButton(self, frame):
+        """Create the button to add data, remove data, and change the price of a data"""
         global add_button, remove_button, change_price
         add_button = Button(frame, text = "Add Data", font = "Poppins, 15", bg = "#222222", fg = "#ffffff", width = 12, borderwidth = 0, highlightthickness = 0, activebackground = "#222222", activeforeground = "#ffffff")
         add_button.bind("<Button-1>", lambda e:self.addData())
@@ -204,6 +220,7 @@ class createGUI(Tk):
         change_price.place(x = 4, y = 115)
         
     def changePrice(self):
+        """Function to change the price of a data"""
         self.int1 = module.int1
         self.int1.set(0)
         self.change_frame = tk.Toplevel()
@@ -237,6 +254,7 @@ class createGUI(Tk):
         change_button.grid(row = 7, column = 0, pady = (10, 5), sticky = "news")
         
     def checkData3(self, frame, event=None):
+        """Show the category that price has been changed"""
         user = userInput.changePrice()
         if len(user) == 1:
             check = user[0]
@@ -258,6 +276,7 @@ class createGUI(Tk):
             self.failLogin(frame, "Price", None)
 
     def removeData(self):
+        """Function to remove a certain data"""
         self.int1 = module.int1
         self.int1.set(0)
         self.remove_frame = tk.Toplevel()
@@ -283,6 +302,7 @@ class createGUI(Tk):
         remove_button.grid(row = 3, column = 0, pady = (10, 5), sticky = "news")
         
     def checkData2(self, frame, event=None):
+        """Show the category that data has been removed"""
         user = userInput.removeData()
         if len(user) == 1:
             check = user[0]
@@ -304,6 +324,7 @@ class createGUI(Tk):
             self.failLogin(frame, "Data", None)
         
     def addData(self):
+        """Function to add a data"""
         self.int1 = module.int1
         self.int1.set(0)
         self.add_frame = tk.Toplevel()
@@ -349,6 +370,7 @@ class createGUI(Tk):
         add_button.grid(row = 13, column = 0, pady = (10, 5), sticky = "news")
     
     def checkData(self, frame, event=None):
+        """Show the category that data has been added"""
         user = userInput.addData()
         if len(user) == 1:
             check = user[0]
@@ -370,6 +392,7 @@ class createGUI(Tk):
             self.failLogin(frame, "Data", None)
         
     def storePanel(self):
+        """Create GUI for storekeeper window"""
         global category_button, store, store_frame
         self.stock.withdraw()
         store = tk.Toplevel()
@@ -389,6 +412,7 @@ class createGUI(Tk):
         store.mainloop()
         
     def dropCategory(self, frame, category_click, button, button2, button3):
+        """Creating a manual drop down when the button 'category' is clicked"""
         self.destroyCategory(frame, button, button2, button3)
         category_list = userInput.getCategory()
         category = category_list[0]
@@ -429,6 +453,7 @@ class createGUI(Tk):
         category_button.bind("<Button-1>", lambda e:self.destroyCategory(frame, button, button2, button3))
                 
     def destroyCategory(self, frame, button, button2, button3):
+        """Hide the drop down category after the 'category' button is clicked"""
         global y, television_clicked, refrigerator_clicked, category_clicked, ref_temp, tv_temp, check_position, check_position2
         
         try:
@@ -455,6 +480,7 @@ class createGUI(Tk):
             pass
     
     def dropBrand(self, frame, category, button, button2, button3):
+        """Creating a manual drop down when the product brand button is clicked"""
         category_list = userInput.getCategory()
         category_item = category_list[0]
         brand = category_list[1]
@@ -488,6 +514,7 @@ class createGUI(Tk):
                         button3.place(x = 4, y = y + 70)
                 
     def destroyBrand(self, frame, category, button, button2, button3):
+        """Hide the drop down brand after the product brand button is clicked"""
         global y, television_clicked, refrigerator_clicked, category_clicked
         
         y = y - (35 * len(brand_list))
@@ -520,6 +547,7 @@ class createGUI(Tk):
                     button3.place(x = 4, y = y + 70)
                 
     def rightCategory(self, window, frame):
+        """Creating the panel in the right window"""
         global right_frame
         text = frame.__str__()
         check = re.search(".+frame$", text)
@@ -548,6 +576,7 @@ class createGUI(Tk):
             find.place(x = 1117, y = 20)
     
     def failLogin(self, frame, check, label):
+        """Function that run if user failed to login"""
         if check == "Login":
             wrong = Label(frame, text = "Username or Password", font = "Poppins, 12", bg = "#333333", fg = "#ffffff")
             wrong2 = Label(frame, text = "is incorrect !!", font = "Poppins, 12", bg = "#333333", fg = "#ffffff")
@@ -569,6 +598,7 @@ class createGUI(Tk):
             wrong.grid(row = 8, column = 0)
     
     def check_login(self, login_frame, label, event=None):
+        """Check whether user's login input is correct and run the window based on their occupation"""
         user = userInput.userLogin()
         for i in range(2):
             if len(user) == 1:
@@ -588,6 +618,7 @@ class createGUI(Tk):
             self.failLogin(login_frame, "Login", label)
             
     def check_register(self, register_frame, label, event=None):
+        """Check whether the user's register is correct and run the window based on their occupation"""
         user = userInput.userRegister()
         if len(user) == 1:
             check = user[0]
@@ -606,11 +637,13 @@ class createGUI(Tk):
             self.failLogin(register_frame, "Register", label)
             
     def logout(self, frame, window):
+        """Creating the logout button"""
         logout = Button(frame, text = "Logout", font = "Poppins, 15", bg = "#222222", fg = "#ffffff", width = 12, borderwidth = 0, highlightthickness = 0, activebackground = "#222222", activeforeground = "#ffffff", anchor = "w")
         logout.bind("<Button-1>", lambda e:self.backLogin(window))
         logout.place(x = 12, y = 450)
         
     def getSearch(self, frame, user_input):
+        """Creating the search bar and button"""
         record = userInput.getTV()
         record2 = userInput.getFridge()
         text = frame.__str__()
@@ -766,6 +799,7 @@ class createGUI(Tk):
             table.place(x = 30, y = 60)
     
     def getTV(self, frame, user_input):
+        """Showing the TV categroy data based on the product brand that is clicked or searched"""
         record = userInput.getTV()
         text = frame.__str__()
         check = re.search(".+frame$", text)
@@ -933,6 +967,7 @@ class createGUI(Tk):
             table.place(x = 30, y = 60)
 
     def getFridge(self, frame, user_input):
+        """Showing the Refrigerator categroy data based on the product brand that is clicked or searched"""
         record = userInput.getFridge()
         text = frame.__str__()
         check = re.search(".+frame$", text)
