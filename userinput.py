@@ -430,7 +430,8 @@ class userInput:
                 
                 if module.int1.get() == 1:
                     category = "Refrigerator"
-                    cursor.execute(sql_refrigerator)
+                    run = f"select {category}.* from category inner join {category} on category.product_brand = {category}.product_brand;"
+                    cursor.execute(run)
                     record = cursor.fetchall()
                     type_id_2 = []
                     check_brand = {}
@@ -453,7 +454,8 @@ class userInput:
                         return edit_stock
                 elif module.int1.get() == 2:
                     category = "Television"
-                    cursor.execute(sql_television)
+                    run = f"select {category}.* from category inner join {category} on category.product_brand = {category}.product_brand;"
+                    cursor.execute(run)
                     record = cursor.fetchall()
                     type_id_2 = []
                     check_brand = {}
@@ -530,13 +532,15 @@ class userInput:
                 
                 if module.int1.get() == 1:
                     category = "Refrigerator"
-                    cursor.execute(sql_refrigerator)
+                    run = f"select {category}.* from category inner join {category} on category.product_brand = {category}.product_brand;"
+                    cursor.execute(run)
                     record = cursor.fetchall()
                     for row in record:
                         check_brand[row[1]] = row[0]
                 elif module.int1.get() == 2:
                     category = "Television"
-                    cursor.execute(sql_television)
+                    run = f"select {category}.* from category inner join {category} on category.product_brand = {category}.product_brand;"
+                    cursor.execute(run)
                     record = cursor.fetchall()
                     for row in record:
                         check_brand[row[1]] = row[0]
