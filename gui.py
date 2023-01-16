@@ -816,7 +816,10 @@ class createGUI(Tk):
                     store_none.append(row[3])
                     store_none.append(row[4])
                     store_none.append(row[5])
-                    output.append(store_none)
+                    if store_none in output:
+                        continue
+                    else:
+                        output.append(store_none)
             else:
                 output = []
                 for row in record:
@@ -827,14 +830,20 @@ class createGUI(Tk):
                         store_none.append(row[3])
                         store_none.append(row[4])
                         store_none.append(row[5])
-                        output.append(store_none)
+                        if store_none in output:
+                            continue
+                        else:
+                            output.append(store_none)
                     elif user_input in row[0] or user_input in row[1]:
                         store_none.append(row[0])
                         store_none.append(row[1])
                         store_none.append(row[3])
                         store_none.append(row[4])
                         store_none.append(row[5])
-                        output.append(store_none)
+                        if store_none in output:
+                            continue
+                        else:
+                            output.append(store_none)
                     
             style = ttk.Style(right_frame)
             style.theme_use("clam")
@@ -872,7 +881,10 @@ class createGUI(Tk):
                     store_none.append(row[3])
                     store_none.append(row[4])
                     store_none.append(row[5])
-                    output.append(store_none)
+                    if store_none in output:
+                        continue
+                    else:
+                        output.append(store_none)
             else:
                 output = []
                 for row in record:
@@ -884,7 +896,10 @@ class createGUI(Tk):
                         store_none.append(row[3])
                         store_none.append(row[4])
                         store_none.append(row[5])
-                        output.append(store_none)
+                        if store_none in output:
+                            continue
+                        else:
+                            output.append(store_none)
                     
             style = ttk.Style(right_frame)
             style.theme_use("clam")
@@ -924,7 +939,10 @@ class createGUI(Tk):
                     store_none.append(row[3])
                     store_none.append(row[4])
                     store_none.append(row[5])
-                    output.append(store_none)
+                    if store_none in output:
+                        continue
+                    else:
+                        output.append(store_none)
             else:
                 output = []
                 for row in record:
@@ -936,7 +954,10 @@ class createGUI(Tk):
                         store_none.append(row[3])
                         store_none.append(row[4])
                         store_none.append(row[5])
-                        output.append(store_none)
+                        if store_none in output:
+                            continue
+                        else:
+                            output.append(store_none)
                     
             style = ttk.Style(right_frame)
             style.theme_use("clam")
@@ -984,7 +1005,10 @@ class createGUI(Tk):
                     store_none.append(row[3])
                     store_none.append(row[4])
                     store_none.append(row[5])
-                    output.append(store_none)
+                    if store_none in output:
+                        continue
+                    else:
+                        output.append(store_none)
             else:
                 output = []
                 for row in record:
@@ -995,7 +1019,10 @@ class createGUI(Tk):
                         store_none.append(row[3])
                         store_none.append(row[4])
                         store_none.append(row[5])
-                        output.append(store_none)
+                        if store_none in output:
+                            continue
+                        else:
+                            output.append(store_none)
                     
             style = ttk.Style(right_frame)
             style.theme_use("clam")
@@ -1033,7 +1060,10 @@ class createGUI(Tk):
                     store_none.append(row[3])
                     store_none.append(row[4])
                     store_none.append(row[5])
-                    output.append(store_none)
+                    if store_none in output:
+                        continue
+                    else:
+                        output.append(store_none)
             else:
                 output = []
                 for row in record:
@@ -1045,7 +1075,10 @@ class createGUI(Tk):
                         store_none.append(row[3])
                         store_none.append(row[4])
                         store_none.append(row[5])
-                        output.append(store_none)
+                        if store_none in output:
+                            continue
+                        else:
+                            output.append(store_none)
                     
             style = ttk.Style(right_frame)
             style.theme_use("clam")
@@ -1085,7 +1118,10 @@ class createGUI(Tk):
                     store_none.append(row[3])
                     store_none.append(row[4])
                     store_none.append(row[5])
-                    output.append(store_none)
+                    if store_none in output:
+                        continue
+                    else:
+                        output.append(store_none)
             else:
                 output = []
                 for row in record:
@@ -1097,7 +1133,10 @@ class createGUI(Tk):
                         store_none.append(row[3])
                         store_none.append(row[4])
                         store_none.append(row[5])
-                        output.append(store_none)
+                        if store_none in output:
+                            continue
+                        else:
+                            output.append(store_none)
                     
             style = ttk.Style(right_frame)
             style.theme_use("clam")

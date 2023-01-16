@@ -11,8 +11,6 @@ sql_category = "SELECT * FROM category"
 sql_worker = "SELECT MAX(user_id) FROM worker"
 worker = "INSERT INTO worker(occupation, first_name, last_name) values(%s, %s, %s)"
 category = "INSERT INTO category(category, product_brand) values(%s, %s)"
-sql_television = "SELECT * FROM television"
-sql_refrigerator = "SELECT * FROM refrigerator"
 stock = "UPDATE %s SET stocks = %s WHERE type_id = %s"
 
 class userInput:
@@ -30,7 +28,6 @@ class userInput:
                 username = module.username_entry.get()
                 password = module.password_entry.get()
                 global check_user, user_login, occupation
-                # occupation = ""
                 user_login = []
                 cursor.execute(sql_user)
                 record = cursor.fetchall()
@@ -182,7 +179,9 @@ class userInput:
                 cursor = connection.cursor()
                 cursor.execute("select database();")
                 record = cursor.fetchone()
-                cursor.execute(sql_television)
+                category = "Television"
+                run = f"select {category}.* from category inner join {category} on category.product_brand = {category}.product_brand;"
+                cursor.execute(run)
                 record = cursor.fetchall()
                 return record
                     
@@ -206,8 +205,11 @@ class userInput:
                 cursor = connection.cursor()
                 cursor.execute("select database();")
                 record = cursor.fetchone()
-                cursor.execute(sql_refrigerator)
+                category = "Refrigerator"
+                run = f"select {category}.* from category inner join {category} on category.product_brand = {category}.product_brand;"
+                cursor.execute(run)
                 record = cursor.fetchall()
+                print(record)
                 return record
                 
         except Error as e:
