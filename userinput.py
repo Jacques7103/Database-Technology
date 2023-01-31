@@ -209,7 +209,6 @@ class userInput:
                 run = f"select {category}.* from category inner join {category} on category.product_brand = {category}.product_brand;"
                 cursor.execute(run)
                 record = cursor.fetchall()
-                print(record)
                 return record
                 
         except Error as e:
